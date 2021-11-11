@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="shortcut icon" href="./images/corrigir.png" type="image/x-icon">
+    <title>To Do List</title>
+</head>
+<body>
+    
+    <header class="header">
+        <img id="logo" src="./images/logo-Thom.png" alt="LOGO">
+        <h1>To Do List</h1>
+        <ul class="menu">
+            <li><a href="./home.html">Home</a></li>
+            <li><a href="./ToDoList.html">To Do List</a></li>
+        </ul>
+    </header>
+
+    <form class="novoItem">
+        <label for="addItem">Novo Item: </label>
+        <input type="text" name="todo" id="addItem" placeholder="Descrição" required>
+        <button id="botaoAdd" type="button">Adicionar Item</button>
+    </form><hr>
+
+    <div class="confirmar" id="model">
+        <p>Deseja realmente excluir o item?</p>
+        <button id="nao">Não</button>
+        <button id="sim">Sim</button>
+    </div>
+
+    <table id="tabela">
+        <thead>
+             <h2>AFAZERES </h2>
+         </thead>
+        <tbody id="teste">
+            <ul class="minhaUl" id="ul">
+                <li class="linha" id="1"><input type="checkbox" name="check" id="checkbox1">Pagar os boletos<img class="excluir" src="./images/deletar-lixeira.png" alt="lixo" id="delete1"></li>
+             </ul>    
+        </tbody>
+    </table>
+
+<script src="./javascript/Check.js"></script>
+<script src="./javascript/NovoItem.js"></script>
+<script src="./javascript/deletaItem.js"></script>
+
+</body>
+</html>
