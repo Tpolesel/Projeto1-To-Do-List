@@ -19,26 +19,28 @@
         </ul>
     </header>
 
-    <form class="novoItem">
+    <div class="novoItem">
         <label for="addItem">Novo Item: </label>
         <input type="text" name="todo" id="addItem" placeholder="Descrição" required>
         <button id="botaoAdd" type="button">Adicionar Item</button>
-    </form><hr>
+    </div><hr>
 
     <div class="confirmar" id="model">
         <p>Deseja realmente excluir o item?</p>
         <button id="nao">Não</button>
         <button id="sim">Sim</button>
     </div>
-
-    <table id="tabela">
+             
+    <table>
         <thead>
-             <h2>AFAZERES </h2>
-         </thead>
-        <tbody id="teste">
-            <ul class="minhaUl" id="ul">
-                <li class="linha" id="1"><input type="checkbox" name="check" id="checkbox1">Pagar os boletos<img class="excluir" src="./images/deletar-lixeira.png" alt="lixo" id="delete1"></li>
-             </ul>    
+            <tr>
+                <th><h2>Lista</h2></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="minhaTr" id="tr">
+         
+            </tr>  
         </tbody>
     </table>
 

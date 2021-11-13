@@ -1,5 +1,5 @@
 
-var el = document.getElementById('ul');
+var el = document.getElementById('tr');
 el.addEventListener('click', function(e) {
 let valor = e.target;
 let idValor = valor.parentNode["id"]

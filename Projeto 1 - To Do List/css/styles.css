@@ -11,14 +11,21 @@ h1{
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-ul{
-    margin: 0;
-    padding: 0;
+tr{
+
     list-style: none;
     font-family: Arial, Helvetica, sans-serif;
 }
+th{
+color: darkblue;
+margin: 0 auto;
+display: flex;
+}
+
+
 .excluir{
-    width: 15px;
+    max-width: 15px;
+    max-height: 15px;
     cursor: pointer;
 }
 
@@ -41,7 +48,8 @@ ul{
 }
     
 .menu li{
-    margin-left: 15px   ;
+    margin-left: 15px;
+    list-style-type: none;
 }
 
 .menu li a{
@@ -52,6 +60,7 @@ ul{
 }
 
 .novoItem{
+    margin: 2px auto;
     display: grid;
     grid-template-columns: 1fr;
     padding: 10px;
@@ -61,22 +70,26 @@ ul{
     position: sticky;
     top: 0px;
     border: 1px solid;
-    margin: 5px;
     background-image: linear-gradient(cornflowerblue, lightblue);
 }
-
+.minhaThead{
+    background-color: green;
+}
 .linha{
     display: flex;
     justify-content: space-between;
     border: 1px solid green;
-    width: 30%;
+    width: 100%;
     padding: 10px;
     margin: 10px;
-}
+    text-align: left;
+    align-items: center;
+} 
 .linha:hover{
     background-color: cornflowerblue;
     color: white;
 }
+
 h2{
     width: 30%;
     text-align: center;
@@ -118,4 +131,8 @@ h2{
     align-items: center;
     padding: 1px;
     
+}
+
+table{
+    margin: 0 auto;
 }
