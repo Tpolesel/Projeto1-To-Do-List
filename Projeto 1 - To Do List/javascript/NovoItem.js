@@ -49,12 +49,14 @@ function criarItem(){
     document.getElementById('addItem').value = ""
 }
 
-if(localStorage){
-    let tamanhoLS = localStorage.length
+if(localStorage.length > 0){
+    let itensK = Object.keys(localStorage)
+    let itensV = Object.values(localStorage)
+    let tamanhoLS = Object.keys(localStorage).length
+    console.log(tamanhoLS)
 
-    for(i=1; i<=tamanhoLS; i++){
-        console.log(i)
-        let novoItem1 = localStorage[i]
+     for(i=0; i < tamanhoLS; i++){
+        let novoItem1 = itensK[i]
 
         let novaL1 = document.querySelector("#tr").childElementCount +1
     
@@ -66,7 +68,8 @@ if(localStorage){
         novoInput1.name = "check";
     
         let novaLinha1 = document.createElement("td");
-        let conteudoLi1 = document.createTextNode(novoItem1);
+        let conter = itensV[i]
+        let conteudoLi1 = document.createTextNode(conter);
         novaLinha1.classList.add('linha');
         novaLinha1.id = novoId1;
     
