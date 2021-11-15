@@ -1,35 +1,26 @@
- var del = document.getElementById('tr');
+var del = document.getElementById('tr');
 del.addEventListener('click', function(e) {
-let valor = e.target
-let idValorDel = valor.parentNode["id"];
-let checkIdDel = valor.attributes["id"].value;
-let parente = valor.parentElement;
+    let linha = e.target
+    let itemLinha = e.target.classList
+    let indexLinha = linha.parentElement
+    
+     
+    if(itemLinha == 'excluir'){         
 
+            let itemExcluir = prompt("Digite o número da tarefa a ser excluída")
+            if(itemExcluir != null){
+                meusItens.splice(parseInt(itemExcluir),1)
+                console.log(meusItens)
+                event.target.parentElement.remove()
+                localS.setItem("itens", meusItens)
 
-
-if(checkIdDel == `delete${idValorDel}`){
-    document.getElementById("model").style.display = "block"
-} else{
-    document.getElementById("model").style.display = "none"
-}
-
-let botaoNao = document.getElementById('nao')
-
-botaoNao.addEventListener("click", function(){
-    document.getElementById("model").style.display = "none"
-    parente = null;
-
-})
-let botaoSim = document.getElementById('sim')
-
-botaoSim.addEventListener("click", function(){
-
-    parente.remove()
-    document.getElementById("model").style.display = "none" 
-    localStorage.removeItem(parente.id.split("")[1])
+            }
+            else{
+                console.log(meusItens)
+            }
+       
+        }else{
+        document.getElementById("model").style.display = "none"
+    }
 
 })
-
-
-})  
-

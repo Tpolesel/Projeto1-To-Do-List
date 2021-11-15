@@ -1,5 +1,7 @@
+//Adicionar items na lista e na LocalStorage
+let meusItens = [];
+let localS = localStorage
 let botaoAdc = document.getElementById('botaoAdd');
-
 botaoAdc.addEventListener("click",function(){
     let novoItem = document.getElementById('addItem').value  
     if(novoItem){
@@ -7,15 +9,11 @@ botaoAdc.addEventListener("click",function(){
 }   else{
     window.alert("Preencha alguma atividade para acrescentar na TO DO LIST")
 }
-
-setTimeout(function(){
-    let salvarItem = document.getElementById('tr').lastChild.innerText
-    let codSalvar = document.getElementById('tr').childElementCount.toString()
-    localStorage.setItem(codSalvar,salvarItem)
-},1000)
-
+    localS.setItem("itens", meusItens)
+    console.log(meusItens)
 })
 
+// Função para Criar Elemente
 function criarItem(){
     let novoItem = document.getElementById('addItem').value  
 
@@ -47,43 +45,47 @@ function criarItem(){
     minhaTr.appendChild(novaLinha);
 
     document.getElementById('addItem').value = ""
+    meusItens.push(novoItem)
+    
 }
 
-if(localStorage.length > 0){
-    let itensK = Object.keys(localStorage)
-    let itensV = Object.values(localStorage)
-    let tamanhoLS = Object.keys(localStorage).length
-    console.log(tamanhoLS)
+// Carregando Itens da LocalStorage na abertura da página
+meusItens = Object.values(localStorage)[0].split(',')
+console.log(meusItens)
+ if(meusItens.length > 0){
+    let tamanho = meusItens.length
+    for(i=0; i<tamanho; i++){
+        let novoItem = meusItens[i]
+        console.log(novoItem)
+        let novaL = document.querySelector("#tr").childElementCount +1
+    
+        let novoId = `l${novaL}`
 
-     for(i=0; i < tamanhoLS; i++){
-        let novoItem1 = itensK[i]
+        let newId = document.createElement("p")
+        let conteudoNewId = document.createTextNode("1")
+        newId.appendChild(conteudoNewId)
+    
+        let novoInput = document.createElement('input');
+        novoInput.id = `checkbox${novoId}`;
+        novoInput.type = "checkbox";
+        novoInput.name = "check";
+    
+        let novaLinha = document.createElement("td");
+        let conteudoLi = document.createTextNode(novoItem);
+        novaLinha.classList.add('linha');
+        novaLinha.id = novoId;
+    
+        let deletar = document.createElement("img")
+        deletar.src = "./images/deletar-lixeira.png"
+        deletar.alt = "lixo"
+        deletar.classList.add('excluir')
+        deletar.id = `delete${novoId}`
 
-        let novaL1 = document.querySelector("#tr").childElementCount +1
-    
-        let novoId1 = `l${novaL1}`
-    
-        let novoInput1 = document.createElement('input');
-        novoInput1.id = `checkbox${novoId1}`;
-        novoInput1.type = "checkbox";
-        novoInput1.name = "check";
-    
-        let novaLinha1 = document.createElement("td");
-        let conter = itensV[i]
-        let conteudoLi1 = document.createTextNode(conter);
-        novaLinha1.classList.add('linha');
-        novaLinha1.id = novoId1;
-    
-        let deletar1 = document.createElement("img")
-        deletar1.src = "./images/deletar-lixeira.png"
-        deletar1.alt = "lixo"
-        deletar1.classList.add('excluir')
-        deletar1.id = `delete${novoId1}`
-    
-        novaLinha1.appendChild(novoInput1);
-        novaLinha1.appendChild(conteudoLi1);
-        novaLinha1.appendChild(deletar1);
+        novaLinha.appendChild(novoInput);
+        novaLinha.appendChild(conteudoLi);
+        novaLinha.appendChild(deletar);
     
         let minhaTr = document.getElementById('tr');
-        minhaTr.appendChild(novaLinha1);
+        minhaTr.appendChild(novaLinha);
     }
 }
